@@ -52,7 +52,7 @@ void yyerror(char *s) {
 }
 
 int main(int cont_entradas, char *entradas[]) {
-    freopen("salida.txt", "w", stdout);
+    //freopen("salida.txt", "w", stdout);
     // Validacion de entradas 
     if (cont_entradas < 2) {
         printf("Invalido. Asegurese de proveer un archivo de entrada");
