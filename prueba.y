@@ -35,7 +35,7 @@ expresion: expresion MAS expresion
          | PAR_IZQ expresion PAR_DER
          | operando
          | error
-         | expresion ACCEPT {printf("Fin de la entrada en esa linea!\n");
+         | expresion ACCEPT {printf(//"Fin de la entrada en esa linea!\n");
                    if(errorlexico==1){
                     return 2;
                     }
