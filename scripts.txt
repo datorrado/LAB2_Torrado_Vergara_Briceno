@@ -1,4 +1,4 @@
-lex prueba.l
-yacc -d prueba.y
-gcc -o prueba y.tab.c
-./prueba entrada.txt
+lex -o LAB02_Torrado_Vergara_Briceno_lex.c LAB02_Torrado_Vergara_Briceno.l
+yacc -d -o LAB02_Torrado_Vergara_Briceno_p.c LAB02_Torrado_Vergara_Briceno.y
+gcc -o LAB02_Torrado_Vergara_Briceno LAB02_Torrado_Vergara_Briceno_p.c
+./LAB02_Torrado_Vergara_Briceno entrada.txt > salida.txt
