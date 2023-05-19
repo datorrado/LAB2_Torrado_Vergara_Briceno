@@ -35,7 +35,7 @@ expresion: expresion MAS expresion
          | PAR_IZQ expresion PAR_DER
          | operando
          | error
-         | expresion ACCEPT {printf("Fin de la entrada en esa linea!\n");
+         | expresion ACCEPT {//printf("Fin de la entrada en esa linea!\n");
                    if(errorlexico==1){
                     return 2;
                     }
@@ -52,7 +52,7 @@ void yyerror(char *s) {
 }
 
 int main(int cont_entradas, char *entradas[]) {
-    freopen("salida.txt", "w", stdout);
+    //freopen("salida.txt", "w", stdout);
     // Validacion de entradas 
     if (cont_entradas < 2) {
         printf("Invalido. Asegurese de proveer un archivo de entrada");
@@ -78,8 +78,7 @@ int main(int cont_entradas, char *entradas[]) {
     char buffer[1024];
 
     while (fgets(buffer, sizeof(buffer), f)) {
-        printf("\n");
-        printf("\nLínea %d\n", linea);
+        printf("Línea %d\n", linea);
         strtok(buffer, "\n");
         strcat(buffer, " $");
 
@@ -92,11 +91,11 @@ int main(int cont_entradas, char *entradas[]) {
         printf("Resultado: %d\n", result);
         printf("Error léxicos: %d\n", errorlexico); */
         if (result == 2) {
-            printf("No se ejecuta el análisis sintáctico");
+            printf("No se ejecuta el análisis sintáctico\n");
         } else if (errorcounter > 0 ) {
-            printf("Análisis sintáctico\n Errores sintácticos: %d\n", errorcounter);
+            printf("Análisis sintáctico\nErrores sintácticos: %d\n", errorcounter);
         } else {
-            printf("Análisis sintáctico\n Correcto!");
+            printf("Análisis sintáctico\nCorrecto!\n");
         }
 
         // Reiniciar el analizador léxico para la siguiente línea
@@ -105,6 +104,7 @@ int main(int cont_entradas, char *entradas[]) {
         errorcounter = 0;
         yy_delete_buffer(rbuffer);
         linea++;
+        printf("\n");
     }
     // Terminar ejecucion
     fclose(f);
