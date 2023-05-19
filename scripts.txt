@@ -1,0 +1,4 @@
+lex prueba.l
+yacc -d prueba.y
+gcc -o prueba y.tab.c
+./prueba entrada.txt
